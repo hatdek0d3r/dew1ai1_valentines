@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💌 Valentine</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(#ffb6c1, #ffe4e1);
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    /* Envelope */
+    .envelope {
+      font-size: 100px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.1);
+    }
+
+    /* Card */
+    .card {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #ccc;
+      position: absolute;
+    }
+
+    .love-message {
+      display: none;
+      font-size: 24px;
+      color: #ff4d6d;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="envelope" onclick="openCard()">💌</div>
+
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? 💖</h1>
+    <button id="yes" onclick="sayYes()">YES</button>
+    <button id="no">NO</button>
+    <div class="love-message" id="love">
+      💕 YAY! I love you! 💕
+    </div>
+  </div>
+</div>
+
+<script>
+  function openCard() {
+    document.querySelector('.envelope').style.display = 'none';
+    document.getElementById('card').style.display = 'block';
+  }
+
+  function sayYes() {
+    document.getElementById('love').style.display = 'block';
+  }
+
+  const noButton = document.getElementById('no');
+
+  noButton.addEventListener('mouseover', () => {
+    const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+    noButton.style.left = x + 'px';
+    noButton.style.top = y + 'px';
+  });
+</script>
+
+</body>
+</html>
